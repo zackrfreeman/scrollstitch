@@ -264,113 +264,40 @@
   #ban {
     padding: var(--sectionPadding);
    
-    
-
-  .ban-wrapper1 {
-    font-size: var(--bodyFontSize);
-    text-align: center;
-    width: 120%;
-    max-width: 120%;
-    margin-inline: auto;
-    height:3rem;
-    position: relative;
-    overflow: hidden;
+        .ban-wrapper1 {
+      --s: 1;
+      --n: 8; /* number of items inside the wrapper */
+      --u: max(12em, 100vw/var(--n));
+      --x: calc(var(--s)*var(--n)*var(--u));
+      display: grid;
+      grid-template-columns: repeat(var(--n), var(--u));
+      text-align: center;
+      text-shadow: calc(-1*var(--x)) 0;
+      white-space: nowrap;
+      animation: a 30s linear infinite;
+      padding-bottom: 1.5rem;
+      
+      &:nth-child(2n) { --s: -1 }
     }
     
-  .ban-wrapper2 {
-    font-size: var(--bodyFontSize);
-    text-align: center;
-    width: 120%;
-    max-width: 120%;
-    margin-inline: auto;
-    height: 1.5rem;
-    position: relative;
-    overflow: hidden;
+    .ban-wrapper2 {
+      --s: 1;
+      --n: 8; /* number of items inside the wrapper */
+      --u: max(12em, 100vw/var(--n));
+      --x: calc(var(--s)*var(--n)*var(--u));
+      display: grid;
+      grid-template-columns: repeat(var(--n), var(--u));
+      text-align: center;
+      text-shadow: calc(-1*var(--x)) 0;
+      white-space: nowrap;
+      animation: a 30s linear infinite;
+      
+      &:nth-child(2n) { --s: -1 }
     }
-
-  
-  
-  @keyframes scrollLeft {
-    from {
-      left: -200px;
-    }
-    to {
-        left: calc(100% + 200px); /* Move out of the visible area */
-    }
+        @keyframes a { 0% { translate: var(--x) } }
   }
-  
-  @keyframes scrollRight {
-    from {
-        right: -200px; /* Start slightly off the right side */
-    }
-    to {
-        right: calc(100% + 200px); /* Move out of the visible area */
-    }
-}
-  
-  .itemLeft,
-  .itemRight  {
-    font-size: (16/16rem);
-    line-height: 1.5em;
-    white-space: normal;
-    width: 200px;
-    border-radius: 6px;
-    position: absolute;
-    animation-timing-function: linear;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-  }
+ }
  
-
-  .itemLeft {
-    left: max(calc(200px * 8), 100%);
-    animation-name: scrollLeft;
-  }
-  
-  .itemRight {
-    right: max(calc(200px * 8), calc(100% + 200px));
-    animation-name: scrollRight;
-  }
-  
-  .item1 {
-    animation-delay: calc(30s / 8 * (8 - 1) * -1);
-  }
-  
-  .item2 {
-    animation-delay: calc(30s / 8 * (8 - 2) * -1);
-  }
-  
-  .item3 {
-    animation-delay: calc(30s / 8 * (8 - 3) * -1);
-  }
-  
-  .item4 {
-    animation-delay: calc(30s / 8 * (8 - 4) * -1);
-  }
-  
-  .item5 {
-    animation-delay: calc(30s / 8 * (8 - 5) * -1);
-  }
-  
-  .item6 {
-    animation-delay: calc(30s / 8 * (8 - 6) * -1);
-  }
-  
-  .item7 {
-    animation-delay: calc(30s / 8 * (8 - 7) * -1);
-  }
-  
-  .item8 {
-    animation-delay: calc(30s / 8 * (8 - 8) * -1);
-  }
-}
-}
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-  
-  }
-
-
   /* Dark Mode */
   @media only screen and (min-width: 0rem) {
     body.dark-mode #ban {
