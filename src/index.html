@@ -1,0 +1,152 @@
+---
+title: 'Pixel Perfect Websites | Code Stitch Web Designs | Denver, CO'
+description: 'Meta description for the page'
+preloadImg: '/assets/images/landing.jpg'
+permalink: '/'
+tags: 'sitemap' # Sitemap will use all pages in content/, due to content.json. As index.html is not included in content/ we need to manually add the sitemap tag to this page (only).
+eleventyNavigation:
+  key: Home
+  order: 100
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/local.css"/>
+    <link rel="stylesheet" href="/assets/css/critical.css"/>
+
+    <!-- Script for Netlify Identity -->
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script defer>
+        if (window.netlifyIdentity) {
+            window
+                .netlifyIdentity
+                .on('init', (user) => {
+                    if (!user) {
+                        window
+                            .netlifyIdentity
+                            .on('login', () => {
+                                document.location.href = '/admin/';
+                            });
+                    }
+                });
+        }
+    </script>
+
+    <!-- JSON Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "name": "{{ client.name }}",
+            {% if preloadImg %}"image": "{{ preloadImg }}",{% endif %}
+            {% if client.phoneFormatted %}"telephone": "{{ client.phoneFormatted }}",{% endif %}
+            {% if client.email %}"email": "{{ client.email }}",{% endif %}
+            {% if client.address %}
+                "address": {
+                    "@type": "PostalAddress"{% if client.address.lineOne %},
+                        "streetAddress": "{{ client.address.lineOne }}{% if client.address.lineTwo %}, {{ client.address.lineTwo }}{% endif %}"
+                    {% endif %}
+                    {% if client.address.city %},
+                        "addressLocality": "{{ client.address.city }}"
+                    {% endif %}
+                    {% if client.address.state %},
+                        "addressRegion": "{{ client.address.state }}"
+                    {% endif %}
+                    {% if client.address.zip %},
+                        "postalCode": "{{ client.address.zip }}"
+                    {% endif %}
+                    {% if client.address.country %},
+                        "addressCountry": "{{ client.address.country }}"
+                    {% endif %}
+                },
+            {% endif %}
+            {% if client.domain and page.url %}"url": "{{ client.domain }}{{ page.url }}",{% endif %}
+            {% if client.socials %}
+                "sameAs": [{% for platform, url in client.socials %}
+                        {% if not loop.first %},{% endif %}
+                        "{{ url }}"
+                    {% endfor %}]
+            {% endif %}
+        }
+    </script>
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--                    Hero                      -->
+<!-- ============================================ -->
+
+<section id="hero-1949">
+    <div class="cs-container">
+        <div class="cs-content">
+            <h1 class="cs-title">Building Your Home Accommodation</h1>
+            <p class="cs-text">We successfully cope with tasks of varying complexity, provide long-term guarantees and regularly master new technologies.</p>
+            <a href="" class="cs-button-solid">Read More</a>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <h3 class="cs-h3">Construction</h3>
+                <p class="cs-item-text">
+                    Designing and Building The Most Beautiful Custom Homes.
+                </p>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">Project Development</h3>
+                <p class="cs-item-text">
+                    Designing and Building The Most Beautiful Custom Homes.
+                </p>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">Interior Design</h3>
+                <p class="cs-item-text">
+                    Designing and Building The Most Beautiful Custom Homes.
+                </p>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">Architecture</h3>
+                <p class="cs-item-text">
+                    Designing and Building The Most Beautiful Custom Homes.
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Background Image, there's a background image in the CSS for the parallax effect you'll need to change as well if you swap out our images -->
+    <picture class="cs-background">
+        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/architect.jpeg">
+        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/architect.jpeg">
+        <img decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/architect.jpeg" alt="architect" width="2250" height="1500" aria-hidden="true">
+    </picture>
+</section>
+                                
+<!-- ============================================ -->
+<!--                   Banner                     -->
+<!-- ============================================ -->
+
+<section id="ban">  
+    <div class="ban-wrapper1">
+        <div class="itemLeft item1">User-Friendly Navigation</div>
+        <div class="itemLeft item2">Responsive Design</div>
+        <div class="itemLeft item3">Fast Loading Speed</div>
+        <div class="itemLeft item4">High-Quality Content</div>
+        <div class="itemLeft item5">Strong Visual Design</div>
+        <div class="itemLeft item6">SEO Optimization</div>
+        <div class="itemLeft item7">Security</div>
+        <div class="itemLeft item8">Clear Call-to-Action</div>
+      </div>
+      <div class="ban-wrapper2">
+        <div class="itemRight item1">Personalized Service</div>
+        <div class="itemRight item2">Direct Communication</div>
+        <div class="itemRight item3">Flexibility and Adaptability</div>
+        <div class="itemRight item4">Attention to Detail</div>
+        <div class="itemRight item5">Community Connection</div>
+        <div class="itemRight item6">Competitive Pricing</div>
+        <div class="itemRight item7">Innovation and Creativity</div>
+        <div class="itemRight item8">Trust and Reliability</div>
+      </div>
+</section>                
+
+    {% include 'components/cta.html' %}
+{% endblock %}
