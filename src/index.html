@@ -127,23 +127,34 @@ eleventyNavigation:
 <!--                   Services                   -->
 <!-- ============================================ -->
 
-<section id="services-1853">
-    <div class="cs-container">
-        <div class="cs-image-group">
+<section id="sbs">
+    <div class="container">
+        <div class="image-group">
             <i>
-                <input checked type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=1');" title="Random Picture 1">
-                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=2');" title="Random Picture 2">
-                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=3');" title="Random Picture 3">
-                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=4');" title="Random Picture 4">
-                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=5');" title="Random Picture 5">
+                <input checked type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=1');">
+                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=2');">
+                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=3');">
+                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=4');" >
+                <input type="radio" name="s" style="background-image: url('https://picsum.photos/500/300?random=5');">
               </i>
-            
-            <!-- Link to your JavaScript file or place JavaScript here -->
-            <script></script>
+             <script>
+              let index = 0;
+              const inputs = document.querySelectorAll('input[name="s"]');
+              const totalImages = inputs.length;
+          
+              function showNextImage() {
+                  inputs[index].checked = false; // Uncheck the current image
+                  index = (index + 1) % totalImages; // Move to the next image
+                  inputs[index].checked = true; // Check the new image
+              }
+          
+              // Change the image every 3 seconds
+              setInterval(showNextImage, 3000);
+          </script>
         </div>
-        <div class="cs-content">
-            <span class="cs-topper">Our Services</span>
-            <h2 class="cs-title">What Services You Can Get From Us</h2>
+        <div class="content">
+            <span class="topper">Our Services</span>
+            <h2 class="title">What Services You Can Get From Us</h2>
             
             <div class="accordion">
                 <div class="accordion-item" id="question1">
