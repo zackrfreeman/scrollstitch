@@ -3,37 +3,37 @@
 <--- -------------------------- -*/
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-  #services-1853 {
-    padding: var(--sectionPadding);
+  #sbs {
     background-color: #222222;
+    margin: 0;
+    padding: var(--sectionPadding);
+    display: flex;
   }
-  #services-1853 .cs-container {
+  #sbs .container {
     width: 100%;
-    /* changes to 1280px at desktop */
-    max-width: 34.375rem;
-    margin: auto;
+    margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     /* 48px - 64px */
-    gap: clamp(3rem, 6vw, 4rem);
   }
-  #services-1853 .cs-content {
-    /* set text align to left if content needs to be left aligned */
+  #sbs .content {
     text-align: left;
-    width: 75%;
-    max-width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    /* centers content horizontally, set to flex-start to left align */
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 5rem;
+    margin-left: 10rem;
   }
-  #services-1853 .cs-title {
+  #sbs .title {
     /* 28px - 44px */
     margin: 0 0 clamp(1.75rem, 6vw, 2.75rem);
     color: var(--bodyTextColorWhite);
   }
-  #services-1853 .cs-ul {
+  #sbs .ul {
     list-style: none;
     width: 100%;
     margin: 0;
@@ -42,11 +42,11 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  #services-1853 .cs-li {
+  #sbs .li {
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  #services-1853 .cs-link {
+  #sbs .link {
     text-decoration: none;
     padding: 1.25rem 0;
     box-sizing: border-box;
@@ -54,13 +54,13 @@
     justify-content: space-between;
     align-items: center;
   }
-  #services-1853 .cs-link:hover .cs-h3 {
+  #sbs .link:hover .cs-h3 {
     color: var(--primary);
   }
-  #services-1853 .cs-link:hover .cs-icon {
+  #sbs .link:hover .icon {
     transform: scale(1.2);
   }
-  #services-1853 .cs-h3 {
+  #sbs .h3 {
     /* 20px - 25px */
     font-size: clamp(1.25rem, 2vw, 1.5625rem);
     font-weight: 700;
@@ -70,16 +70,17 @@
     color: var(--bodyTextColorWhite);
     transition: color 0.3s;
   }
-  #services-1853 .cs-icon {
-    width: 2rem;
+  #sbs .icon {
+    width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s;
     transform-origin: bottom left;
   }
-  #services-1853 .cs-image-group {
+  #sbs .image-group {
     box-sizing: border-box;
-    margin: 0;
+    width: 100%;
+    margin: 5rem;
     padding: 0;
     font-family: sans-serif;
     background-color: #262626;
@@ -91,7 +92,7 @@
   i {
     position: relative;
     display: block;
-    width: 30rem;
+    width: 100%;
     height: 20rem;
     overflow: hidden;
     border-radius: 5px;
@@ -214,7 +215,6 @@
     font-size: 15px;
     padding: 2rem;
   }
-  /* Use hover to expand accordion */
   .accordion-item:hover .answer {
     max-height: 10rem;
   }
