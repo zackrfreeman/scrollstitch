@@ -1,7 +1,7 @@
 
 
 /*-- -------------------------- -->
-<---          Services          -->
+<---      Side-by-Side         -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
@@ -12,17 +12,16 @@
     padding: var(--sectionPadding);
     display: flex;
   }
+
   #sbs .container {
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    
-    /* 48px - 64px */
-   
+    justify-content: center 
   }
+
   #sbs .content {
     text-align: left;
     width: 100%;
@@ -30,16 +29,15 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    margin: 5rem;
-    margin-left:10rem;
-      
-    
+    padding: clamp(1.5rem, 4vw, 2rem)clamp(1.5rem, 4vw, 2rem) 3.75rem clamp(1.5rem, 4vw, 2rem);
   }
+  
   #sbs .title {
     /* 28px - 44px */
     margin: 0 0 clamp(1.75rem, 6vw, 2.75rem);
     color: var(--bodyTextColorWhite);
   }
+
   #sbs .ul {
     list-style: none;
     width: 100%;
@@ -49,10 +47,12 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
   #sbs .li {
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+
   #sbs .link {
     text-decoration: none;
     padding: 1.25rem 0;
@@ -61,12 +61,15 @@
     justify-content: space-between;
     align-items: center;
   }
+
   #sbs .link:hover .cs-h3 {
     color: var(--primary);
   }
+
   #sbs .link:hover .icon {
     transform: scale(1.2);
   }
+
   #sbs .h3 {
     /* 20px - 25px */
     font-size: clamp(1.25rem, 2vw, 1.5625rem);
@@ -77,6 +80,7 @@
     color: var(--bodyTextColorWhite);
     transition: color 0.3s;
   }
+
   #sbs .icon {
     width: 100%;
     height: auto;
@@ -95,7 +99,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    
     }
     
     i {
@@ -129,8 +132,7 @@
     input:focus {
       outline: none;
     }
-    
-     
+         
     input:not(:checked):before {
       content: '';
       position: absolute;
@@ -234,7 +236,6 @@
       padding: 2rem;
     }
     
-   
     .accordion-item:hover .answer {
       max-height: 10rem;
     }
@@ -250,34 +251,71 @@
     h3 {
       color:var(--bodyTextColorWhite);
     }
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-    #sbs .cs-container {
-      max-width: 80rem;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: stretch;
+}  
+
+/* Small Desktop - 1024px */
+  @media (max-width: 64rem) {
+    #sbs .container {
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
     }
-    #sbs .cs-content {
-      text-align: left;
-      padding: 3.25rem 0;
-      align-items: flex-start;
-      align-self: center;
+
+    #sbs .image-group {
+        margin-bottom: 2rem; 
     }
-    #sbs .cs-image-group {
-      font-size: min(1.265vw, 1rem);
-      height: auto;
-      min-height: 38.3125em;
-      flex: none;
-      order: 2;
+}
+
+/* Narrow screens*/
+@media (max-width: 530px) and (min-width: 50px) {
+  #sbs .accordion{
+        padding-left: 2rem; 
+}  
+  
+  #sbs .accordion-link {
+        font-size: 1rem; 
+        padding: 0.5rem 0;
+       
     }
-    #sbs .cs-picture1 {
-      height: 88.091354%;
+
+    #sbs .accordion-link h3 {
+        font-size: 0.9rem; 
     }
-    #sbs.cs-picture2 {
-      height: 59.54323%;
+
+    #sbs .accordion-link ul {
+        margin-left: 10px; 
     }
-  }
+
+    #sbs .accordion-link li {
+      display:none;
+    }
+
+    #sbs .accordion-item .answer p {
+        font-size: 12px; 
+        padding: 0.75rem; 
+    }
+
+    #sbs .accordion-item hr {
+        margin: 0.25rem 0; 
+    }
+
+    #sbs .container {
+        padding: 0 1rem; 
+    }
+
+    #sbs .content {
+        padding: 1rem; 
+    }
+
+    #sbs .icon {
+        display:none;
+    }
+    .accordion-item:hover .answer {
+      max-height: 25rem;
+    }
+}
+
   /* Dark Mode */
   @media only screen and (min-width: 0rem) {
     body.dark-mode #sbs {
@@ -450,7 +488,7 @@
         }
     }
 }
-}
+
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
     #gallery-974 {
